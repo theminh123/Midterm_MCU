@@ -36,10 +36,10 @@ void fsm_simple_button_run ( void ) {
 				 counter--;
 				 display7SEG(counter);
 				 if(counter == 0){
-					 setTimer1(100);
 					 setTimer2(1000);
 					 break;
 				 }
+				 setTimer1(100);
 			 }
  		 }
  		 break ;
@@ -56,6 +56,7 @@ void fsm_simple_button_run ( void ) {
  		 else {
 			 if( is_button_pressed_3s (1) ) {
 				 buttonState = BUTTON2_PRESSED_MORE_THAN_3_SECOND ;
+				 setTimer2(1000);
 			 }
 		 }
  		 if(counter > 9){
@@ -70,6 +71,7 @@ void fsm_simple_button_run ( void ) {
  		 else {
 			 if( is_button_pressed_3s (2) ) {
 				 buttonState = BUTTON3_PRESSED_MORE_THAN_3_SECOND ;
+				 setTimer2(1000);
 			 }
 		 }
  		 if(counter < 0){
@@ -92,7 +94,6 @@ void fsm_simple_button_run ( void ) {
 			 }
 	 		 display7SEG(counter);
  		 }
-		 setTimer2(1000);
  		 break ;
 	 case BUTTON3_PRESSED_MORE_THAN_3_SECOND :
 		 if (! is_button_pressed (2) ) {
@@ -109,7 +110,6 @@ void fsm_simple_button_run ( void ) {
 			 }
 	 		 display7SEG(counter);
  		 }
-		 setTimer2(1000);
 		 break ;
  }
 }
