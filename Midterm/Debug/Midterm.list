@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  000167d0  00000000  00000000  0002b6a8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000a885  00000000  00000000  00041e78  2**0
+ 17 .debug_line   0000a881  00000000  00000000  00041e78  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00081f45  00000000  00000000  0004c6fd  2**0
+ 18 .debug_str    00081f45  00000000  00000000  0004c6f9  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000ce642  2**0
+ 19 .comment      00000053  00000000  00000000  000ce63e  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  0000275c  00000000  00000000  000ce698  2**2
+ 20 .debug_frame  0000275c  00000000  00000000  000ce694  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -734,8 +734,8 @@ void fsm_simple_button_run ( void ) {
  80005fc:	08000615 	.word	0x08000615
  8000600:	080006bf 	.word	0x080006bf
  8000604:	080006dd 	.word	0x080006dd
- 8000608:	08000725 	.word	0x08000725
- 800060c:	0800076d 	.word	0x0800076d
+ 8000608:	0800071d 	.word	0x0800071d
+ 800060c:	08000765 	.word	0x08000765
  8000610:	080007c7 	.word	0x080007c7
  	 case BUTTON_RELEASED :
  		 if( is_button_pressed (0) ) {
@@ -800,12 +800,12 @@ void fsm_simple_button_run ( void ) {
  800067c:	4b6e      	ldr	r3, [pc, #440]	; (8000838 <fsm_simple_button_run+0x250>)
  800067e:	681b      	ldr	r3, [r3, #0]
  8000680:	2b01      	cmp	r3, #1
- 8000682:	f040 80cd 	bne.w	8000820 <fsm_simple_button_run+0x238>
+ 8000682:	f040 80d1 	bne.w	8000828 <fsm_simple_button_run+0x240>
 			 if(timer1_flag == 1){
  8000686:	4b6d      	ldr	r3, [pc, #436]	; (800083c <fsm_simple_button_run+0x254>)
  8000688:	681b      	ldr	r3, [r3, #0]
  800068a:	2b01      	cmp	r3, #1
- 800068c:	f040 80c8 	bne.w	8000820 <fsm_simple_button_run+0x238>
+ 800068c:	f040 80cc 	bne.w	8000828 <fsm_simple_button_run+0x240>
 				 counter--;
  8000690:	4b68      	ldr	r3, [pc, #416]	; (8000834 <fsm_simple_button_run+0x24c>)
  8000692:	681b      	ldr	r3, [r3, #0]
@@ -834,7 +834,7 @@ void fsm_simple_button_run ( void ) {
 			 }
  		 }
  		 break ;
- 80006bc:	e0b0      	b.n	8000820 <fsm_simple_button_run+0x238>
+ 80006bc:	e0b4      	b.n	8000828 <fsm_simple_button_run+0x240>
  	 case BUTTON1_PRESSED :
  		 if (! is_button_pressed (0) ) {
  80006be:	2000      	movs	r0, #0
@@ -865,7 +865,7 @@ void fsm_simple_button_run ( void ) {
  80006e8:	4b51      	ldr	r3, [pc, #324]	; (8000830 <fsm_simple_button_run+0x248>)
  80006ea:	2200      	movs	r2, #0
  80006ec:	701a      	strb	r2, [r3, #0]
- 80006ee:	e00c      	b.n	800070a <fsm_simple_button_run+0x122>
+ 80006ee:	e008      	b.n	8000702 <fsm_simple_button_run+0x11a>
  		 }
  		 else {
 			 if( is_button_pressed_3s (1) ) {
@@ -873,135 +873,135 @@ void fsm_simple_button_run ( void ) {
  80006f2:	f7ff fdd1 	bl	8000298 <is_button_pressed_3s>
  80006f6:	4603      	mov	r3, r0
  80006f8:	2b00      	cmp	r3, #0
- 80006fa:	d006      	beq.n	800070a <fsm_simple_button_run+0x122>
+ 80006fa:	d002      	beq.n	8000702 <fsm_simple_button_run+0x11a>
 				 buttonState = BUTTON2_PRESSED_MORE_THAN_3_SECOND ;
  80006fc:	4b4c      	ldr	r3, [pc, #304]	; (8000830 <fsm_simple_button_run+0x248>)
  80006fe:	2204      	movs	r2, #4
  8000700:	701a      	strb	r2, [r3, #0]
-				 setTimer2(1000);
- 8000702:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
- 8000706:	f000 fa61 	bl	8000bcc <setTimer2>
 			 }
 		 }
  		 if(counter > 9){
- 800070a:	4b4a      	ldr	r3, [pc, #296]	; (8000834 <fsm_simple_button_run+0x24c>)
- 800070c:	681b      	ldr	r3, [r3, #0]
- 800070e:	2b09      	cmp	r3, #9
- 8000710:	dd02      	ble.n	8000718 <fsm_simple_button_run+0x130>
+ 8000702:	4b4c      	ldr	r3, [pc, #304]	; (8000834 <fsm_simple_button_run+0x24c>)
+ 8000704:	681b      	ldr	r3, [r3, #0]
+ 8000706:	2b09      	cmp	r3, #9
+ 8000708:	dd02      	ble.n	8000710 <fsm_simple_button_run+0x128>
  			 counter = 0;
- 8000712:	4b48      	ldr	r3, [pc, #288]	; (8000834 <fsm_simple_button_run+0x24c>)
- 8000714:	2200      	movs	r2, #0
- 8000716:	601a      	str	r2, [r3, #0]
+ 800070a:	4b4a      	ldr	r3, [pc, #296]	; (8000834 <fsm_simple_button_run+0x24c>)
+ 800070c:	2200      	movs	r2, #0
+ 800070e:	601a      	str	r2, [r3, #0]
  		 }
 		 display7SEG(counter);
- 8000718:	4b46      	ldr	r3, [pc, #280]	; (8000834 <fsm_simple_button_run+0x24c>)
- 800071a:	681b      	ldr	r3, [r3, #0]
- 800071c:	4618      	mov	r0, r3
- 800071e:	f7ff fdd5 	bl	80002cc <display7SEG>
+ 8000710:	4b48      	ldr	r3, [pc, #288]	; (8000834 <fsm_simple_button_run+0x24c>)
+ 8000712:	681b      	ldr	r3, [r3, #0]
+ 8000714:	4618      	mov	r0, r3
+ 8000716:	f7ff fdd9 	bl	80002cc <display7SEG>
  		 break;
- 8000722:	e082      	b.n	800082a <fsm_simple_button_run+0x242>
+ 800071a:	e086      	b.n	800082a <fsm_simple_button_run+0x242>
  	 case BUTTON3_PRESSED:
  		 if (! is_button_pressed (2) ) {
- 8000724:	2002      	movs	r0, #2
- 8000726:	f7ff fd9d 	bl	8000264 <is_button_pressed>
- 800072a:	4603      	mov	r3, r0
- 800072c:	2b00      	cmp	r3, #0
- 800072e:	d103      	bne.n	8000738 <fsm_simple_button_run+0x150>
+ 800071c:	2002      	movs	r0, #2
+ 800071e:	f7ff fda1 	bl	8000264 <is_button_pressed>
+ 8000722:	4603      	mov	r3, r0
+ 8000724:	2b00      	cmp	r3, #0
+ 8000726:	d103      	bne.n	8000730 <fsm_simple_button_run+0x148>
 			 buttonState = BUTTON_RELEASED ;
- 8000730:	4b3f      	ldr	r3, [pc, #252]	; (8000830 <fsm_simple_button_run+0x248>)
- 8000732:	2200      	movs	r2, #0
- 8000734:	701a      	strb	r2, [r3, #0]
- 8000736:	e00c      	b.n	8000752 <fsm_simple_button_run+0x16a>
+ 8000728:	4b41      	ldr	r3, [pc, #260]	; (8000830 <fsm_simple_button_run+0x248>)
+ 800072a:	2200      	movs	r2, #0
+ 800072c:	701a      	strb	r2, [r3, #0]
+ 800072e:	e00c      	b.n	800074a <fsm_simple_button_run+0x162>
  		 }
  		 else {
 			 if( is_button_pressed_3s (2) ) {
- 8000738:	2002      	movs	r0, #2
- 800073a:	f7ff fdad 	bl	8000298 <is_button_pressed_3s>
- 800073e:	4603      	mov	r3, r0
- 8000740:	2b00      	cmp	r3, #0
- 8000742:	d006      	beq.n	8000752 <fsm_simple_button_run+0x16a>
+ 8000730:	2002      	movs	r0, #2
+ 8000732:	f7ff fdb1 	bl	8000298 <is_button_pressed_3s>
+ 8000736:	4603      	mov	r3, r0
+ 8000738:	2b00      	cmp	r3, #0
+ 800073a:	d006      	beq.n	800074a <fsm_simple_button_run+0x162>
 				 buttonState = BUTTON3_PRESSED_MORE_THAN_3_SECOND ;
- 8000744:	4b3a      	ldr	r3, [pc, #232]	; (8000830 <fsm_simple_button_run+0x248>)
- 8000746:	2205      	movs	r2, #5
- 8000748:	701a      	strb	r2, [r3, #0]
+ 800073c:	4b3c      	ldr	r3, [pc, #240]	; (8000830 <fsm_simple_button_run+0x248>)
+ 800073e:	2205      	movs	r2, #5
+ 8000740:	701a      	strb	r2, [r3, #0]
 				 setTimer2(1000);
- 800074a:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
- 800074e:	f000 fa3d 	bl	8000bcc <setTimer2>
+ 8000742:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
+ 8000746:	f000 fa41 	bl	8000bcc <setTimer2>
 			 }
 		 }
  		 if(counter < 0){
- 8000752:	4b38      	ldr	r3, [pc, #224]	; (8000834 <fsm_simple_button_run+0x24c>)
- 8000754:	681b      	ldr	r3, [r3, #0]
- 8000756:	2b00      	cmp	r3, #0
- 8000758:	da02      	bge.n	8000760 <fsm_simple_button_run+0x178>
+ 800074a:	4b3a      	ldr	r3, [pc, #232]	; (8000834 <fsm_simple_button_run+0x24c>)
+ 800074c:	681b      	ldr	r3, [r3, #0]
+ 800074e:	2b00      	cmp	r3, #0
+ 8000750:	da02      	bge.n	8000758 <fsm_simple_button_run+0x170>
  			 counter = 9;
- 800075a:	4b36      	ldr	r3, [pc, #216]	; (8000834 <fsm_simple_button_run+0x24c>)
- 800075c:	2209      	movs	r2, #9
- 800075e:	601a      	str	r2, [r3, #0]
+ 8000752:	4b38      	ldr	r3, [pc, #224]	; (8000834 <fsm_simple_button_run+0x24c>)
+ 8000754:	2209      	movs	r2, #9
+ 8000756:	601a      	str	r2, [r3, #0]
  		 }
  		 display7SEG(counter);
- 8000760:	4b34      	ldr	r3, [pc, #208]	; (8000834 <fsm_simple_button_run+0x24c>)
- 8000762:	681b      	ldr	r3, [r3, #0]
- 8000764:	4618      	mov	r0, r3
- 8000766:	f7ff fdb1 	bl	80002cc <display7SEG>
+ 8000758:	4b36      	ldr	r3, [pc, #216]	; (8000834 <fsm_simple_button_run+0x24c>)
+ 800075a:	681b      	ldr	r3, [r3, #0]
+ 800075c:	4618      	mov	r0, r3
+ 800075e:	f7ff fdb5 	bl	80002cc <display7SEG>
  	 	 break;
- 800076a:	e05e      	b.n	800082a <fsm_simple_button_run+0x242>
+ 8000762:	e062      	b.n	800082a <fsm_simple_button_run+0x242>
  	 case BUTTON2_PRESSED_MORE_THAN_3_SECOND :
  		 if (! is_button_pressed (1) ) {
- 800076c:	2001      	movs	r0, #1
- 800076e:	f7ff fd79 	bl	8000264 <is_button_pressed>
- 8000772:	4603      	mov	r3, r0
- 8000774:	2b00      	cmp	r3, #0
- 8000776:	d102      	bne.n	800077e <fsm_simple_button_run+0x196>
+ 8000764:	2001      	movs	r0, #1
+ 8000766:	f7ff fd7d 	bl	8000264 <is_button_pressed>
+ 800076a:	4603      	mov	r3, r0
+ 800076c:	2b00      	cmp	r3, #0
+ 800076e:	d102      	bne.n	8000776 <fsm_simple_button_run+0x18e>
  			 buttonState = BUTTON_RELEASED ;
- 8000778:	4b2d      	ldr	r3, [pc, #180]	; (8000830 <fsm_simple_button_run+0x248>)
- 800077a:	2200      	movs	r2, #0
- 800077c:	701a      	strb	r2, [r3, #0]
+ 8000770:	4b2f      	ldr	r3, [pc, #188]	; (8000830 <fsm_simple_button_run+0x248>)
+ 8000772:	2200      	movs	r2, #0
+ 8000774:	701a      	strb	r2, [r3, #0]
  		 }
  		 if(is_button_pressed (1)){
- 800077e:	2001      	movs	r0, #1
- 8000780:	f7ff fd70 	bl	8000264 <is_button_pressed>
- 8000784:	4603      	mov	r3, r0
- 8000786:	2b00      	cmp	r3, #0
- 8000788:	d04c      	beq.n	8000824 <fsm_simple_button_run+0x23c>
+ 8000776:	2001      	movs	r0, #1
+ 8000778:	f7ff fd74 	bl	8000264 <is_button_pressed>
+ 800077c:	4603      	mov	r3, r0
+ 800077e:	2b00      	cmp	r3, #0
+ 8000780:	d01c      	beq.n	80007bc <fsm_simple_button_run+0x1d4>
 			 if(timer1_flag == 1){
- 800078a:	4b2c      	ldr	r3, [pc, #176]	; (800083c <fsm_simple_button_run+0x254>)
- 800078c:	681b      	ldr	r3, [r3, #0]
- 800078e:	2b01      	cmp	r3, #1
- 8000790:	d113      	bne.n	80007ba <fsm_simple_button_run+0x1d2>
+ 8000782:	4b2e      	ldr	r3, [pc, #184]	; (800083c <fsm_simple_button_run+0x254>)
+ 8000784:	681b      	ldr	r3, [r3, #0]
+ 8000786:	2b01      	cmp	r3, #1
+ 8000788:	d113      	bne.n	80007b2 <fsm_simple_button_run+0x1ca>
 				 counter ++;
- 8000792:	4b28      	ldr	r3, [pc, #160]	; (8000834 <fsm_simple_button_run+0x24c>)
- 8000794:	681b      	ldr	r3, [r3, #0]
- 8000796:	3301      	adds	r3, #1
- 8000798:	4a26      	ldr	r2, [pc, #152]	; (8000834 <fsm_simple_button_run+0x24c>)
- 800079a:	6013      	str	r3, [r2, #0]
+ 800078a:	4b2a      	ldr	r3, [pc, #168]	; (8000834 <fsm_simple_button_run+0x24c>)
+ 800078c:	681b      	ldr	r3, [r3, #0]
+ 800078e:	3301      	adds	r3, #1
+ 8000790:	4a28      	ldr	r2, [pc, #160]	; (8000834 <fsm_simple_button_run+0x24c>)
+ 8000792:	6013      	str	r3, [r2, #0]
 				 if(counter > 9){
- 800079c:	4b25      	ldr	r3, [pc, #148]	; (8000834 <fsm_simple_button_run+0x24c>)
- 800079e:	681b      	ldr	r3, [r3, #0]
- 80007a0:	2b09      	cmp	r3, #9
- 80007a2:	dd02      	ble.n	80007aa <fsm_simple_button_run+0x1c2>
+ 8000794:	4b27      	ldr	r3, [pc, #156]	; (8000834 <fsm_simple_button_run+0x24c>)
+ 8000796:	681b      	ldr	r3, [r3, #0]
+ 8000798:	2b09      	cmp	r3, #9
+ 800079a:	dd02      	ble.n	80007a2 <fsm_simple_button_run+0x1ba>
 					 counter = 0;
- 80007a4:	4b23      	ldr	r3, [pc, #140]	; (8000834 <fsm_simple_button_run+0x24c>)
- 80007a6:	2200      	movs	r2, #0
- 80007a8:	601a      	str	r2, [r3, #0]
+ 800079c:	4b25      	ldr	r3, [pc, #148]	; (8000834 <fsm_simple_button_run+0x24c>)
+ 800079e:	2200      	movs	r2, #0
+ 80007a0:	601a      	str	r2, [r3, #0]
 				 }
 				 setTimer1(100);
- 80007aa:	2064      	movs	r0, #100	; 0x64
- 80007ac:	f000 f9fa 	bl	8000ba4 <setTimer1>
+ 80007a2:	2064      	movs	r0, #100	; 0x64
+ 80007a4:	f000 f9fe 	bl	8000ba4 <setTimer1>
 		 		 display7SEG(counter);
- 80007b0:	4b20      	ldr	r3, [pc, #128]	; (8000834 <fsm_simple_button_run+0x24c>)
- 80007b2:	681b      	ldr	r3, [r3, #0]
- 80007b4:	4618      	mov	r0, r3
- 80007b6:	f7ff fd89 	bl	80002cc <display7SEG>
+ 80007a8:	4b22      	ldr	r3, [pc, #136]	; (8000834 <fsm_simple_button_run+0x24c>)
+ 80007aa:	681b      	ldr	r3, [r3, #0]
+ 80007ac:	4618      	mov	r0, r3
+ 80007ae:	f7ff fd8d 	bl	80002cc <display7SEG>
 			 }
 	 		 display7SEG(counter);
- 80007ba:	4b1e      	ldr	r3, [pc, #120]	; (8000834 <fsm_simple_button_run+0x24c>)
- 80007bc:	681b      	ldr	r3, [r3, #0]
- 80007be:	4618      	mov	r0, r3
- 80007c0:	f7ff fd84 	bl	80002cc <display7SEG>
+ 80007b2:	4b20      	ldr	r3, [pc, #128]	; (8000834 <fsm_simple_button_run+0x24c>)
+ 80007b4:	681b      	ldr	r3, [r3, #0]
+ 80007b6:	4618      	mov	r0, r3
+ 80007b8:	f7ff fd88 	bl	80002cc <display7SEG>
  		 }
+		 setTimer2(1000);
+ 80007bc:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
+ 80007c0:	f000 fa04 	bl	8000bcc <setTimer2>
  		 break ;
- 80007c4:	e02e      	b.n	8000824 <fsm_simple_button_run+0x23c>
+ 80007c4:	e031      	b.n	800082a <fsm_simple_button_run+0x242>
 	 case BUTTON3_PRESSED_MORE_THAN_3_SECOND :
 		 if (! is_button_pressed (2) ) {
  80007c6:	2002      	movs	r0, #2
@@ -1019,7 +1019,7 @@ void fsm_simple_button_run ( void ) {
  80007da:	f7ff fd43 	bl	8000264 <is_button_pressed>
  80007de:	4603      	mov	r3, r0
  80007e0:	2b00      	cmp	r3, #0
- 80007e2:	d021      	beq.n	8000828 <fsm_simple_button_run+0x240>
+ 80007e2:	d01c      	beq.n	800081e <fsm_simple_button_run+0x236>
 			 if(timer1_flag == 1){
  80007e4:	4b15      	ldr	r3, [pc, #84]	; (800083c <fsm_simple_button_run+0x254>)
  80007e6:	681b      	ldr	r3, [r3, #0]
@@ -1056,15 +1056,12 @@ void fsm_simple_button_run ( void ) {
  8000818:	4618      	mov	r0, r3
  800081a:	f7ff fd57 	bl	80002cc <display7SEG>
  		 }
+		 setTimer2(1000);
+ 800081e:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
+ 8000822:	f000 f9d3 	bl	8000bcc <setTimer2>
 		 break ;
- 800081e:	e003      	b.n	8000828 <fsm_simple_button_run+0x240>
- 		 break ;
- 8000820:	bf00      	nop
- 8000822:	e002      	b.n	800082a <fsm_simple_button_run+0x242>
- 		 break ;
- 8000824:	bf00      	nop
  8000826:	e000      	b.n	800082a <fsm_simple_button_run+0x242>
-		 break ;
+ 		 break ;
  8000828:	bf00      	nop
  }
 }
